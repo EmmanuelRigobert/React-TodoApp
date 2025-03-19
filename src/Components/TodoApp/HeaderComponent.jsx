@@ -1,6 +1,14 @@
 import { Link } from 'react-router-dom';
+import { useAuth } from './Security/AuthContext';
 
 function HeaderComponent() {
+  const authContext = useAuth(); // Here we use the useContext hook to access the AuthContext.
+  const isAuthenticated = authContext.isAuthenticated; // We access the isAuthenticated state from the AuthContext.
+  
+  function logout() {
+    authContext.logout();
+  }
+
   return (
     <header className='border-bottom border-light border-5 mb-5 p-2'>
       <div className='container'>
@@ -10,32 +18,40 @@ function HeaderComponent() {
               className='navbar-brand ms-2 fs-2 fw-bold text-black'
               href='https://github.com/EmmanuelRigobert'
             >
-              Author
+              Autor
             </a>
             <div className='collapse navbar-collapse'>
               <ul className='navbar-nav'>
                 <li className='nav-item fs-5'>
-                  <Link className='nav-link' to='/welcome/in28minutes'>
-                    Home
-                  </Link>
+                  {isAuthenticated && (
+                    <Link className='nav-link' to='/welcome/in28minutes'>
+                      Heim
+                    </Link>
+                  )}
                 </li>
                 <li className='nav-item fs-5'>
-                  <Link className='nav-link' to='/todos'>
-                    Todos
-                  </Link>
+                  {isAuthenticated && (
+                    <Link className='nav-link' to='/todos'>
+                      Todos
+                    </Link>
+                  )}
                 </li>
               </ul>
             </div>
             <ul className='navbar-nav'>
               <li className='nav-item fs-5'>
-                <Link className='nav-link' to='/login'>
-                  Login
-                </Link>
+                {!isAuthenticated && (
+                  <Link className='nav-link' to='/login'>
+                    Login
+                  </Link>
+                )}
               </li>
               <li className='nav-item fs-5'>
-                <Link className='nav-link' to='/logout'>
-                  Logout
-                </Link>
+                {isAuthenticated && (
+                  <Link className='nav-link' to='/logout' onClick={logout}>
+                    Logout
+                  </Link>
+                )}
               </li>
             </ul>
           </nav>

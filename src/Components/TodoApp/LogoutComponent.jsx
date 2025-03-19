@@ -1,8 +1,8 @@
 function LogoutComponent() {
   return (
     <div className='LogoutComponent'>
-      <h1>You are Logged out</h1>
-      <p>Thank you for using our application</p>
+      <h1>Sie sind abgemeldet</h1>
+      <p>Vielen Dank für die Nutzung meiner Application</p>
     </div>
   );
 }

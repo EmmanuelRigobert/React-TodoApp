@@ -15,3 +15,8 @@ footer {
   height: 50px;
   text-align: center;
 }
+
+.failureMessage {
+  color: red;
+  font-size: 20px;
+}
