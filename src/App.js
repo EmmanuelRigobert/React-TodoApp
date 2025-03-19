@@ -3,8 +3,8 @@ import Counter from './Components/ReactCounter/Counter';
 
 function App() {
   return (
-    <div className="App">
-      <Counter />
+    <div className='App'>
+      <Counter/>
     </div>
   );
 }
