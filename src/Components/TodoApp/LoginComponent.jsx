@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useAuth } from './Security/AuthContext';
 
 function LoginComponent() {
-  const [username, setUsername] = useState('Emmanuel');
+  const [username, setUsername] = useState('emmanuel');
   const [password, setPassword] = useState('password');
 
   // const [showSuccessMessage, setShowSuccessMessage] = useState(false);

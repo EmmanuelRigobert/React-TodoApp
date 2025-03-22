@@ -17,14 +17,18 @@ function AuthProvider({ children }) { //We use the AuthProvider to provide the c
 
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
+  const [username, setUsername] = useState(null);
+
   // setInterval(() => setNumber(number + 1), 10000);
   
   function login(username,password){
-    if(username === 'Emmanuel' && password === 'password'){
+    if(username === 'emmanuel' && password === 'password'){
       setIsAuthenticated(true);
+      setUsername(username);
       return true;
     }else{
       setIsAuthenticated(false);
+      setUsername(null);
       return false;
     }
   }
@@ -34,7 +38,7 @@ function AuthProvider({ children }) { //We use the AuthProvider to provide the c
   }
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, login, logout }}>
+    <AuthContext.Provider value={{ isAuthenticated, login, logout, username }}>
       {children}
     </AuthContext.Provider>
   );
